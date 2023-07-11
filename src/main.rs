@@ -42,7 +42,21 @@ fn retrieve_installed_pip_packages() -> HashMap<String, PipPackage> {
     package_map
 }
 
+fn get_python_sys_path_list() -> String {
+    let output = Command::new("python")
+                         .arg("-c")
+                         .arg("import sys; print(sys.path)")
+                         .output()
+                         .expect("Failed to run pip list -v.");
+                        
+    let mut data = String::new();
+    data.push_str(match str::from_utf8(&output.stdout) {
+        Ok(val) => val,
+        Err(_) => panic!("got non UTF-8 data")
+    });
+    data
+}
 fn main() {
+    println!("Output: {}", get_python_sys_path_list());
     let package_map: HashMap<String, PipPackage> = retrieve_installed_pip_packages();
 }
-
