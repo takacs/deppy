@@ -1,7 +1,7 @@
 
 <h3 align="center">Deppy - A dependency extractor</h3>
 <p align="center">
-  <img src="media/mascot.png" width=50%/>
+  <img src="media/mascot.png" width=35%/>
 </p>
 
 ##
