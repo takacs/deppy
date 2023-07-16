@@ -19,7 +19,7 @@ fn retrieve_installed_pip_packages() -> HashMap<String, PipPackage> {
     let mut data = String::new();
     data.push_str(match str::from_utf8(&output.stdout) {
         Ok(val) => val,
-        Err(_) => panic!("got non UTF-8 data")
+        Err(_) => panic!("Got Non-UTF-8 input")
     });
 
     // println!("stdout:\n{}", String::from_utf8_lossy(&output.stdout));
@@ -52,7 +52,7 @@ fn get_python_sys_path_list() -> String {
     let mut data = String::new();
     data.push_str(match str::from_utf8(&output.stdout) {
         Ok(val) => val,
-        Err(_) => panic!("got non UTF-8 data")
+        Err(_) => panic!("Got Non-UTF-8 input")
     });
     data
 }
